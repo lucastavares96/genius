@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.active {
+			opacity: 1 !important;
+		}
+	</style>
+</head>
+
+<body>
+	<div style="margin: auto; width: 50%;">
+		<div class="buttons-container">
+			<button id="1" style="background-color: green; padding: 50px; margin: 10px; opacity: 0.5;" onclick="verificarSequencia(this.id)"></button>
+            <button id="2" style="background-color: yellow; padding: 50px; margin: 10px; opacity: 0.5;" onclick="verificarSequencia(this.id)"></button>
+            <br>
+			<button id="3" style="background-color: red; padding: 50px; margin: 10px; opacity: 0.5;" onclick="verificarSequencia(this.id)"></button>
+            <button id="4" style="background-color: blue; padding: 50px; margin: 10px; opacity: 0.5;" onclick="verificarSequencia(this.id)"></button>
+            <br>
+		</div>
+		<br><br>
+		<button onclick="iniciarJogo()" style="margin-left: 10px;">Iniciar</button>
+        <div style="margin-left:5px;">
+            <div>Score: <span id="score">0</span></div>
+            <div>Maior Score: <span id="maiorScore">0</span></div>
+        </div>
+	</div>
+</body>
+<script src="script.js"></script>
+
+</html>
