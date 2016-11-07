@@ -65,14 +65,16 @@ function pulseSequence(sequence) {
     }
     pulseButton(sequence[0], function () {
         sequence.splice(0, 1);
-        pulseSequence(sequence);
+        setTimeout(function() {
+            pulseSequence(sequence);            
+        }, 500);
     });
 }
 
 function pulseButton(id, callback) {
     var botaoAtual;
     botaoAtual = botoesEl[id];
-    botaoAtual.className += " active";
+    botaoAtual.className += "active";
     setTimeout(function () {
         botaoAtual.className = "botao-seq";
         if (callback) {
