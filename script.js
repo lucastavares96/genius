@@ -1,10 +1,10 @@
 var scoreAtualEl = document.getElementById("score");
 var maiorScoreEl = document.getElementById("maiorScore");
 var botoesEl = {
-    1: document.getElementById(1),
-    2: document.getElementById(2),
-    3: document.getElementById(3),
-    4: document.getElementById(4)
+    'btn-1': document.getElementById('btn-1'),
+    'btn-2': document.getElementById('btn-2'),
+    'btn-3': document.getElementById('btn-3'),
+    'btn-4': document.getElementById('btn-4')
 };
 var idBotaoAtual, botaoAtual;
 var estadoAtual = '';
@@ -16,7 +16,7 @@ function iniciarJogo() {
     historicoBotoes = [];
     cont = 0;
     scoreAtual = 0;
-    randomId = Math.floor((Math.random() * 4) + 1);
+    randomId = 'btn-' + Math.floor((Math.random() * 4) + 1);
     historicoBotoes.push(randomId);
     pulseButton(randomId)
 }
@@ -41,7 +41,7 @@ function verificarSequencia(idBotaoSelecionado) {
 function finalizarSequenciaAtual() {
     cont = 0;
     atualizarScore(historicoBotoes.length);
-    randomId = Math.floor((Math.random() * 4) + 1);
+    randomId = 'btn-' + Math.floor((Math.random() * 4) + 1);
     historicoBotoes.push(randomId);
     var newSequece = historicoBotoes.slice();
     setTimeout(function () {
@@ -72,9 +72,9 @@ function pulseSequence(sequence) {
 function pulseButton(id, callback) {
     var botaoAtual;
     botaoAtual = botoesEl[id];
-    botaoAtual.className = "active";
+    botaoAtual.className += " active";
     setTimeout(function () {
-        botaoAtual.className = "";
+        botaoAtual.className = "botao-seq";
         if (callback) {
             callback();
         }
