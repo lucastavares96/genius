@@ -14,7 +14,7 @@ var maiorScore = 0;
 var scoreAtual = 0;
 function iniciarJogo() {
     historicoBotoes = [];
-    cont = 0;
+    contSeqAtual = 0;
     scoreAtual = 0;
     randomId = 'btn-' + Math.floor((Math.random() * 4) + 1);
     historicoBotoes.push(randomId);
@@ -23,7 +23,7 @@ function iniciarJogo() {
 
 function verificarSequencia(idBotaoSelecionado) {
     pulseButton(idBotaoSelecionado, function () {
-        if (idBotaoSelecionado != historicoBotoes[cont]) {
+        if (idBotaoSelecionado != historicoBotoes[contSeqAtual]) {
             if (scoreAtual > maiorScore) {
                 atualizarMaiorScore(scoreAtual);
             }
@@ -31,15 +31,15 @@ function verificarSequencia(idBotaoSelecionado) {
             alert("Sequencia errada, você perdeu!");
             return
         }
-        cont++;
-        if (cont === historicoBotoes.length) {
+        contSeqAtual++;
+        if (contSeqAtual === historicoBotoes.length) {
             finalizarSequenciaAtual();
         }
     });
 }
 
 function finalizarSequenciaAtual() {
-    cont = 0;
+    contSeqAtual = 0;
     atualizarScore(historicoBotoes.length);
     randomId = 'btn-' + Math.floor((Math.random() * 4) + 1);
     historicoBotoes.push(randomId);
@@ -74,7 +74,7 @@ function pulseSequence(sequence) {
 function pulseButton(id, callback) {
     var botaoAtual;
     botaoAtual = botoesEl[id];
-    botaoAtual.className += "active";
+    botaoAtual.className += " active";
     setTimeout(function () {
         botaoAtual.className = "botao-seq";
         if (callback) {
